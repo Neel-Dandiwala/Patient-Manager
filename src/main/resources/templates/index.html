@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Patient LogBook</title>
+</head>
+<body>
+<div align="center">
+	<h1>Patient Manager</h1>
+	<br/>
+	<a href="new">Add New Patient</a>
+	<br /> <br />
+	<table border="1" cellpadding="10">
+		<thead>
+			<tr>
+				<th>Patient ID</th>
+				<th>Name</th>
+				<th>Age</th>
+				<th>Gender</th>
+				<th>Bill Amount ($)</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="patient : ${listPatients}">
+				<td th:text="${patient.id}">Patient ID</td>
+				<td th:text="${patient.name}">Name</td>
+				<td th:text="${patient.age}">Age</td>
+				<td th:text="${patient.gender}">Gender</td>
+				<td th:text="${patient.amount}">Amount</td>
+				<td>
+					<a th:href="@{'/edit/' + ${patient.id}}">Edit</a>
+					&nbsp;&nbsp;&nbsp;&nbsp;
+					<a th:href="@{'/delete/' + ${patient.id}}">Delete</a>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+</body>
+</html>
