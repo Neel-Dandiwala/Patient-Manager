@@ -20,8 +20,8 @@ public class DataSourceBean {
 		return DataSourceBuilder
 				.create()
 				.url("jdbc:mysql://localhost:3306/hospitaldb")
-				.username("root")
-				.password("root")
+				.username("username")
+				.password("password")
 				.build();
 		
 	}
